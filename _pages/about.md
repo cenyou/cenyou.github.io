@@ -13,9 +13,9 @@ Previously, I studied computational neuroscience at University of Tübingen and 
 
 Research interests
 ------
+* Gaussian processes, deep learning
 * Bayesian inference, uncertainty estimation
 * safe active learning, Bayesian optimization
-* sequential decision making with NNs (particularly transformers)
 
 
 
