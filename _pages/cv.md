@@ -21,10 +21,5 @@ Work experience
 
 * 2015 - 2016: Military Service, Taiwan
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
 
 
