@@ -11,26 +11,7 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+
 
 * **Amortized Active Learning for Nonparametric Functions.**\
 **Cen-You Li**, Marc Toussaint, Barbara Rakitsch, Christoph Zimmer.\
@@ -55,3 +36,28 @@ Artificial Intelligence and Statistics Conference (**AISTATS**) 2022\
 Ying-Jun Chen, Hao-Hsin Chang, Shih-Han Lin, Tzi-Yang Lin, Ting-Han Wu, Hsin-Ju Lin, Nan-Fu Liou, Chi-Jen Yang, Yuh-Tarng Chen, Kai Hsiang Chang, **Cen-You Li**, and Ya-Hui Chou.\
 Journal of Neurogenetics 2019\
 [doi](https://doi.org/10.1080/01677063.2018.1564289)
+
+
+
+<!-- New style rendering if publication categories are defined -->
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+
