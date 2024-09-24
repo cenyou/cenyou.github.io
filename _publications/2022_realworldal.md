@@ -1,0 +1,11 @@
+---
+title: "Learning how to safely explore dynamic systems"
+author: ["Christoph Zimmer", "Cen-You Li", "Mark Schillinger", "Mona Meister", "Barbara Rakitsch", "Duy Nguyen-Tuong"]
+category: conferences
+permalink: /publication/2022_realworldal
+date: 2022
+venue: 'ICML Workshop: Adaptive Experimental Design and Active Learning in the Real World'
+pdf: 'https://realworldml.github.io/files/cr/paper17.pdf'
+---
+
+
