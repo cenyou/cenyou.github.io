@@ -25,7 +25,6 @@ I am re-programming this page, weird style might occur.
         {% for author in post.author %}
           {% if author == "__self__" %}<strong>{{site.author.name}}</strong>{% else %}{{author}}{% endif %}
           {% if forloop.last %}{% else %},{% endif %}
-          {% endif %}
         {% endfor %}
         <br/>
         {% if post.venue_highlight %}
