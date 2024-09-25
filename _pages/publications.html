@@ -23,7 +23,9 @@ I am re-programming this page, weird style might occur.
       </h2>
       <p>
         {% for author in post.author %}
-          {{author}}
+          {% if author == "__self__" %}<strong>{{page.author}}</strong>{% else %}{{author}}
+          {% if forloop.last %}{% else %},{% endif %}
+          {% endif %}
         {% endfor %}
       </p>
       <p>
@@ -34,21 +36,11 @@ I am re-programming this page, weird style might occur.
       {% endif %}
       </p>
       <p>
-        {% if post.html %}
-        <br/><a href="{{ post.html }}" class="btn btn--inverse-thin">HTML</a>
-        {% endif post.pdf %}
-        {% if post.doi %}
-        <br/><a href="{{ post.doi }}" class="btn btn--inverse-thin">DOI</a>
-        {% endif post.pdf %}
-        {% if post.arxiv %}
-        <br/><a href="{{ post.arxiv }}" class="btn btn--inverse-thin">ARXIV</a>
-        {% endif post.pdf %}
-        {% if post.pdf %}
-        <br/><a href="{{ post.pdf }}" class="btn btn--inverse-thin">PDF</a>
-        {% endif %}
-        {% if post.code %}
-        <br/><a href="{{ post.code }}" class="btn btn--inverse-thin">code</a>
-        {% endif %}
+      {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin">HTML</a>{% endif %}
+      {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin">DOI</a>{% endif %}
+      {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin">ARXIV</a>{% endif %}
+      {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin">PDF</a>{% endif %}
+      {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin">code</a>{% endif %}
       </p>
     </article>
   </div>
