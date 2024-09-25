@@ -21,21 +21,21 @@ author_profile: true
       </h3>
       <p>
         {% for author in post.author %}
-          {% if author == "__self__" %}<strong>{{site.author.name}}</strong>{% else %}{{author}}{% endif %}
+          {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
           {% if forloop.last %}{% else %},{% endif %}
         {% endfor %}
         <br/>
         {% if post.venue_highlight %}
-        {{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>). {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
         {% else %}
-        {{ post.venue }}. {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
         {% endif %}
         <br/>
         {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
         {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
         {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
         {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">code</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
       </p>
     </article>
   </div>
