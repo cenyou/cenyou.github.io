@@ -13,36 +13,35 @@ author_profile: true
 
 {% include base_path %}
 
-<ul>
-  <li> <strong>Amortized Active Learning for Nonparametric Functions.</strong>
-    <br/> <strong>Cen-You Li</strong>, Marc Toussaint, Barbara Rakitsch, Christoph Zimmer.
-    <br/> ECML-PKDD Workshop: Interactive Adaptive Learning 2024.
-    <br/> <a href="https://arxiv.org/abs/2407.17992" class="btn btn--inverse-thin">arXiv</a>
-  </li>
-  <li> <strong>Global Safe Sequential Learning via Efficient Knowledge Transfer.</strong>
-    <br/> <strong>Cen-You Li</strong>, Olaf Duennbier, Marc Toussaint, Barbara Rakitsch, Christoph Zimmer.
-    <br/> 
-    <br/> <a href="https://arxiv.org/abs/2402.14402" class="btn btn--inverse-thin">arXiv</a>
-    <a href="https://github.com/boschresearch/TransferSafeSequentialLearning" class="btn btn--inverse-thin">code</a>
-  </li>
-  <li> <strong>Learning how to safely explore dynamic systems.</strong>
-    <br/> Christoph Zimmer, <strong>Cen-You Li</strong>, Mark Schillinger, Mona Meister, Barbara Rakitsch, Duy Nguyen-Tuong.
-    <br/> ICML Workshop: Adaptive Experimental Design and Active Learning in the Real World 2022.
-    <br/> <a href="https://realworldml.github.io/files/cr/paper17.pdf" class="btn btn--inverse-thin">pdf</a>
-  </li>
-  <li> <strong>Safe Active Learning for Multi-Output Gaussian Processes.</strong>
-    <br/> <strong>Cen-You Li</strong>, Barbara Rakitsch, Christoph Zimmer.
-    <br/> International Conference on Artificial Intelligence and Statistics (<strong>AISTATS</strong>) 2022.
-    <br/> <a href="https://proceedings.mlr.press/v151/li22d.html" class="btn btn--inverse-thin">HTML</a>
-    <a href="https://arxiv.org/abs/2203.14849" class="btn btn--inverse-thin">arXiv</a>
-    <a href="https://github.com/boschresearch/SALMOGP" class="btn btn--inverse-thin">code</a>
-  </li>
-  <li> <strong>Differential efficacy of genetically swapping gal4.</strong>
-    <br/> Ying-Jun Chen, Hao-Hsin Chang, Shih-Han Lin, Tzi-Yang Lin, Ting-Han Wu, Hsin-Ju Lin, Nan-Fu Liou, Chi-Jen Yang, Yuh-Tarng Chen, Kai Hsiang Chang, <strong>Cen-You Li</strong>, and Ya-Hui Chou.
-    <br/> Journal of Neurogenetics 2019.
-    <br/> <a href="https://doi.org/10.1080/01677063.2018.1564289" class="btn btn--inverse-thin">doi</a>
-  </li>
-</ul>
+{% for post in site.publications reversed %}
+  <div class="{{ include.type | default: "list" }}__item">
+    <article>
+      <h3 itemprop="headline">
+        <strong>{{ post.title }}</strong>
+      </h3>
+      <p>
+        {% for author in post.author %}
+          {% if author == "__self__" %}<strong>{{site.author.name}}</strong>{% else %}{{author}}{% endif %}
+          {% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+        <br/>
+        {% if post.venue_highlight %}
+        {{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>). {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% else %}
+        {{ post.venue }}. {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% endif %}
+        <br/>
+        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
+        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
+        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
+        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">code</a>{% endif %}
+      </p>
+    </article>
+  </div>
+{% endfor %}
+
+
 
 
 <!-- New style rendering if publication categories are defined -->
