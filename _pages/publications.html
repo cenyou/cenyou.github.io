@@ -16,31 +16,29 @@ author_profile: true
 I am re-programming this page, weird style might occur.
 {% for post in site.publications reversed %}
   <div class="{{ include.type | default: "list" }}__item">
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    <article>
 
-      <h2 class="archive__item-title" itemprop="headline">
+      <h3 itemprop="headline">
         <strong>{{ post.title }}</strong>
-      </h2>
+      </h3>
       <p>
         {% for author in post.author %}
-          {% if author == "__self__" %}<strong>{{site.author.name}}</strong>{% else %}{{author}}
+          {% if author == "__self__" %}<strong>{{site.author.name}}</strong>{% else %}{{author}}{% endif %}
           {% if forloop.last %}{% else %},{% endif %}
           {% endif %}
         {% endfor %}
-      </p>
-      <p>
-      {% if post.venue_highlight %}
-      {{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>). {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-      {% else %}
-      {{ post.venue }}. {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-      {% endif %}
-      </p>
-      <p>
-      {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
-      {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
-      {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
-      {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-      {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">code</a>{% endif %}
+        <br/>
+        {% if post.venue_highlight %}
+        {{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>). {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% else %}
+        {{ post.venue }}. {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% endif %}
+        <br/>
+        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
+        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
+        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
+        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">code</a>{% endif %}
       </p>
     </article>
   </div>
