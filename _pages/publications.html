@@ -34,39 +34,20 @@ I am re-programming this page, weird style might occur.
       {% endif %}
       </p>
       <p>
-        {% assign links_start = false %}
-        {% if post.arxiv %}
-          <a href="{{ post.arxiv }}" class="btn btn--inverse-thin">ARXIV</a>
-          {% assign links_start = true %}
-        {% endif %}
-        {% if post.doi %}
-            {% if not links_start %}
-              <br/>
-              {% assign link_start = true %}
-            {% endif %}
-            <a href="{{ post.doi }}" class="btn btn--inverse-thin">DOI</a>
-          {% assign link_start = true %}
-        {% endif %}
         {% if post.html %}
-          {% if not links_start %}
-            <br/>
-            {% assign link_start = true %}
-          {% endif %}
-          <a href="{{ post.html }}" class="btn btn--inverse-thin">HTML</a>
-        {% endif %}
+        <br/><a href="{{ post.html }}" class="btn btn--inverse-thin">HTML</a>
+        {% endif post.pdf %}
+        {% if post.doi %}
+        <br/><a href="{{ post.doi }}" class="btn btn--inverse-thin">DOI</a>
+        {% endif post.pdf %}
+        {% if post.arxiv %}
+        <br/><a href="{{ post.arxiv }}" class="btn btn--inverse-thin">ARXIV</a>
+        {% endif post.pdf %}
         {% if post.pdf %}
-          {% if not links_start %}
-            <br/>
-            {% assign link_start = true %}
-          {% endif %}
-          <a href="{{ post.pdf }}" class="btn btn--inverse-thin">PDF</a>
+        <br/><a href="{{ post.pdf }}" class="btn btn--inverse-thin">PDF</a>
         {% endif %}
         {% if post.code %}
-          {% if not links_start %}
-            <br/>
-            {% assign link_start = true %}
-          {% endif %}
-          <a href="{{ post.code }}" class="btn btn--inverse-thin">code</a>
+        <br/><a href="{{ post.code }}" class="btn btn--inverse-thin">code</a>
         {% endif %}
       </p>
     </article>
