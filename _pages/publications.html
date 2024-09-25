@@ -13,11 +13,9 @@ author_profile: true
 
 {% include base_path %}
 
-I am re-programming this page, weird style might occur.
 {% for post in site.publications reversed %}
   <div class="{{ include.type | default: "list" }}__item">
     <article>
-
       <h3 itemprop="headline">
         <strong>{{ post.title }}</strong>
       </h3>
