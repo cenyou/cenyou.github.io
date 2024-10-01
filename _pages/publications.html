@@ -31,11 +31,16 @@ author_profile: true
         <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
         {% endif %}
         <br/>
-        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
-        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
-        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
-        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
+        {% if post.abstract %}
+        <li class="toggle" content="{{ post.abstract }}">
+          <a class="btn btn--inverse-thin">ABS</a>
+        </li>
+        {% endif %}
+        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin">HTML</a>{% endif %}
+        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin">DOI</a>{% endif %}
+        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin">ARXIV</a>{% endif %}
+        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin">PDF</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin">CODE</a>{% endif %}
       </p>
     </article>
   </div>
