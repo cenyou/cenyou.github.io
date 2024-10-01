@@ -32,7 +32,7 @@ author_profile: true
         {% endif %}
         <br/>
         <!-- abstract button -->
-        {% if post.abstract %}<a onclick="toggle('abstract')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
+        {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
         <!-- style="text-decoration:none;" switches off ref underline -->
         {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
         {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
@@ -41,7 +41,7 @@ author_profile: true
         {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
         <!-- abstract content -->
         {% if post.abstract %}
-        <br/><div id="abstract" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
+        <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
         {% endif %}
       </p>
     </article>
