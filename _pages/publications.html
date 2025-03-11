@@ -20,38 +20,36 @@ author_profile: true
     {% if post.venue_highlight %}<a class="btn btn--badge" style="text-decoration:none;">{{post.venue_highlight}}</a>{% endif %}
   </div>
   <div class="col">
-    <div class="{{ include.type | default: 'list' }}__item">
-      <article>
-        <h3 itemprop="headline">
-          <strong>{{ post.title }}</strong>
-        </h3>
-        <p>
-          {% for author in post.author %}
-            {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
-            {% if forloop.last %}{% else %},{% endif %}
-          {% endfor %}
-          <br/>
-          {% if post.venue_highlight %}
-          <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-          {% else %}
-          <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-          {% endif %}
-          <br/>
-          <!-- abstract button -->
-          {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
-          <!-- style="text-decoration:none;" switches off ref underline -->
-          {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
-          {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
-          {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
-          {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-          {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
-          <!-- abstract content -->
-          {% if post.abstract %}
-          <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
-          {% endif %}
-        </p>
-      </article>
-    </div>
+    <article>
+      <h3 itemprop="headline">
+        <strong>{{ post.title }}</strong>
+      </h3>
+      <p>
+        {% for author in post.author %}
+          {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
+          {% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+        <br/>
+        {% if post.venue_highlight %}
+        <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% else %}
+        <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% endif %}
+        <br/>
+        <!-- abstract button -->
+        {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
+        <!-- style="text-decoration:none;" switches off ref underline -->
+        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
+        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
+        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
+        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
+        <!-- abstract content -->
+        {% if post.abstract %}
+        <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
+        {% endif %}
+      </p>
+    </article>
   </div>
 </div>
 {% endfor %}
