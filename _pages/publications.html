@@ -5,49 +5,62 @@ permalink: /publications/
 author_profile: true
 ---
 
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+</style>
+
 {% include base_path %}
 
-<table>
 {% for post in site.publications reversed %}
-  <tr>
-    <td rowspan="5"><abbr class="btn btn--badge">{{post.badge}}</abbr></td>
-    <td>
+  <div class="row"><div class="{{ include.type | default: 'list' }}__item">
+    <div class="column">
+      <abbr class="btn btn--badge">{{post.badge}}</abbr>
+    </div>
+    <div class="column"></div><article>
       <h3 itemprop="headline">
         <strong>{{ post.title }}</strong>
       </h3>
-    </td>
-  </tr>
-  <tr><td>
-    {% for author in post.author %}
-      {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
-      {% if forloop.last %}{% else %},{% endif %}
-    {% endfor %}
-  </td></tr>
-  <tr><td>
-    {% if post.venue_highlight %}
-    <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-    {% else %}
-    <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-    {% endif %}
-  </td></tr>
-  <tr><td>
-    <!-- abstract button -->
-    {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
-    <!-- style="text-decoration:none;" switches off ref underline -->
-    {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
-    {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
-    {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
-    {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-    {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
-  </td></tr>
-  <tr><td>
-    <!-- abstract content -->
-    {% if post.abstract %}
-    <div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
-    {% endif %}
-  </td></tr>
+      <p>
+        {% for author in post.author %}
+          {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
+          {% if forloop.last %}{% else %},{% endif %}
+        {% endfor %}
+        <br/>
+        {% if post.venue_highlight %}
+        <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% else %}
+        <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+        {% endif %}
+        <br/>
+        <!-- abstract button -->
+        {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
+        <!-- style="text-decoration:none;" switches off ref underline -->
+        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
+        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
+        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
+        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
+        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
+        <!-- abstract content -->
+        {% if post.abstract %}
+        <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
+        {% endif %}
+      </p>
+    </article></div>
+  </div></div>
 {% endfor %}
-</table>
 
 <script>
 function toggle(id) {
