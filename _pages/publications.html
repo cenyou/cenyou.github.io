@@ -5,49 +5,57 @@ permalink: /publications/
 author_profile: true
 ---
 
-<!--
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-//-->
-
 {% include base_path %}
 
+<div class="container">
 {% for post in site.publications reversed %}
-  <div class="{{ include.type | default: 'list' }}__item">
-    <article>
-      <h3 itemprop="headline">
-        <strong>{{ post.title }}</strong>
-        <abbr class="btn btn--badge">{{post.badge}}</abbr>
-      </h3>
-      <p>
-        {% for author in post.author %}
-          {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
-          {% if forloop.last %}{% else %},{% endif %}
-        {% endfor %}
-        <br/>
-        {% if post.venue_highlight %}
-        <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-        {% else %}
-        <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
-        {% endif %}
-        <br/>
-        <!-- abstract button -->
-        {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
-        <!-- style="text-decoration:none;" switches off ref underline -->
-        {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
-        {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
-        {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
-        {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
-        {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
-        <!-- abstract content -->
-        {% if post.abstract %}
-        <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
-        {% endif %}
-      </p>
-    </article>
+  <div class="row">
+    <div class="col"><abbr class="btn btn--badge">{{post.badge}}</abbr></div>
+    <div class="col"><strong>{{ post.title }}</strong></div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      {% for author in post.author %}
+        {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
+        {% if forloop.last %}{% else %},{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      {% if post.venue_highlight %}
+      <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+      {% else %}
+      <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <!-- abstract button -->
+      {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
+      <!-- style="text-decoration:none;" switches off ref underline -->
+      {% if post.html %}<a href="{{ post.html }}" class="btn btn--inverse-thin" style="text-decoration:none;">HTML</a>{% endif %}
+      {% if post.doi %}<a href="{{ post.doi }}" class="btn btn--inverse-thin" style="text-decoration:none;">DOI</a>{% endif %}
+      {% if post.arxiv %}<a href="{{ post.arxiv }}" class="btn btn--inverse-thin" style="text-decoration:none;">ARXIV</a>{% endif %}
+      {% if post.pdf %}<a href="{{ post.pdf }}" class="btn btn--inverse-thin" style="text-decoration:none;">PDF</a>{% endif %}
+      {% if post.code %}<a href="{{ post.code }}" class="btn btn--inverse-thin" style="text-decoration:none;">CODE</a>{% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <!-- abstract content -->
+      {% if post.abstract %}
+      <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
+      {% endif %}
+    </div>
   </div>
 {% endfor %}
+</div>
 
 <script>
 function toggle(id) {
@@ -59,30 +67,4 @@ function toggle(id) {
   }
 }
 </script>
-
-
-
-
-<!-- New style rendering if publication categories are defined -->
-<!--
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-//-->
 
