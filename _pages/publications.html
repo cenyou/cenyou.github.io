@@ -5,28 +5,12 @@ permalink: /publications/
 author_profile: true
 ---
 
-<style>
-  .column {
-    float: left;
-    width: 50%;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-</style>
-
 {% include base_path %}
 
 {% for post in site.publications reversed %}
-  <div class="row"><div class="{{ include.type | default: 'list' }}__item">
-    <div class="column">
-      <abbr class="btn btn--badge">{{post.badge}}</abbr>
-    </div>
-    <div class="column"></div><article>
+  <div class="{{ include.type | default: 'list' }}__item">
+    <abbr class="btn btn--badge">{{post.badge}}</abbr>
+    <article>
       <h3 itemprop="headline">
         <strong>{{ post.title }}</strong>
       </h3>
@@ -55,8 +39,8 @@ author_profile: true
         <br/><div id="abstract-{{ post.title }}" class="page__toggle" style="display:none;">{{ post.abstract }}</div>
         {% endif %}
       </p>
-    </article></div>
-  </div></div>
+    </article>
+  </div>
 {% endfor %}
 
 <script>
