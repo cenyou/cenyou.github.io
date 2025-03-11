@@ -7,11 +7,15 @@ author_profile: true
 
 {% include base_path %}
 
+<table>
 {% for post in site.publications reversed %}
+<tr>
+  <td><abbr class="btn btn--badge">{{post.badge}}</abbr></td>
+  <td>
   <div class="{{ include.type | default: 'list' }}__item">
     <article>
       <h3 itemprop="headline">
-        <strong>{{ post.title }}</strong><abbr class="btn btn--badge">{{post.badge}}</abbr>
+        <strong>{{ post.title }}</strong>
       </h3>
       <p>
         {% for author in post.author %}
@@ -40,7 +44,10 @@ author_profile: true
       </p>
     </article>
   </div>
+  </td>
+</tr>
 {% endfor %}
+</table>
 
 <script>
 function toggle(id) {
