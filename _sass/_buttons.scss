@@ -45,6 +45,16 @@
     }
   }
 
+  /* badge */
+
+  &--badge {
+    pointer-events: none;
+    padding: 0.1em 0.5em;
+    color: #fff !important;
+    font-size: $type-size-5;
+    background-color: mix(#ff00dd, #000, 70%) !important;
+  }
+
   /* for dark backgrounds */
 
   &--inverse {
