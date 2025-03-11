@@ -11,21 +11,26 @@ author_profile: true
   <div class="{{ include.type | default: 'list' }}__item">
     <article>
       <h3 itemprop="headline">
-        <abbr class="btn btn--badge">{{post.badge}}</abbr>
-        <strong>{{ post.title }}</strong>
+        <div class="row">
+          <div class="col"><abbr class="btn btn--badge">{{post.badge}}</abbr></div>
+          <div class="col"><strong>{{ post.title }}</strong></div>
+        </div>
       </h3>
       <p>
+        <abbr class="btn btn--placeholder">{{post.badge}}</abbr>
         {% for author in post.author %}
           {% if author == "__self__" %}<u>{{site.author.name}}</u>{% else %}{{author}}{% endif %}
           {% if forloop.last %}{% else %},{% endif %}
         {% endfor %}
         <br/>
+        <abbr class="btn btn--placeholder">{{post.badge}}</abbr>
         {% if post.venue_highlight %}
         <em>{{ post.venue }} (<strong>{{ post.venue_highlight }}</strong>).</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
         {% else %}
         <em>{{ post.venue }}.</em> {{ post.date | default: "1900-01-01" | date: "%Y" }}.
         {% endif %}
         <br/>
+        <abbr class="btn btn--placeholder">{{post.badge}}</abbr>
         <!-- abstract button -->
         {% if post.abstract %}<a onclick="toggle('abstract-{{ post.title }}')" class="btn btn--inverse-thin" style="text-decoration:none;">ABS</a>{% endif %}
         <!-- style="text-decoration:none;" switches off ref underline -->
