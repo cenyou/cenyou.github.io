@@ -17,9 +17,15 @@ I completed my undergraduate studies in mathematics at National Tsing Hua Univer
 
 Research interests
 ------
-* Gaussian processes, deep learning
-* Bayesian inference, uncertainty estimation
-* safe active learning, Bayesian optimization, adaptive experimental design
+* Bayesian Methods, Uncertainty Estimation
+* Active Learning, Bayesian Optimization, Adaptive Experimental Design
+* Amortized / Pretrained Bayesian Approaches
 
-
+Selected publications
+------
+{% for post in site.publications reversed %}
+  {% if post.selected %}
+    {% include single-publication.html %}
+  {% endif %}
+{% endfor %}
 
