@@ -17,8 +17,8 @@ author_profile: true
   <div class="{{ include.type | default: 'list' }}__item">
     <article>
       <h3 itemprop="headline">
-        {% if post.venue_highlight %}<a class="btn btn--badge" style="text-decoration:none;">{{post.venue_highlight}}</a>{% endif %}<br/>
         <strong>{{ post.title }}</strong>
+        <abbr class="btn btn--badge">{{post.badge}}</abbr>
       </h3>
       <p>
         {% for author in post.author %}
