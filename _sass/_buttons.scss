@@ -45,6 +45,17 @@
     }
   }
 
+  /* badge */
+
+  &--badge {
+    pointer-events: none;
+    margin-bottom: 0.15em !important;
+    padding: 0.3em 0.6em !important;
+    color: white !important;
+    font-weight: normal !important;
+    background-color: mix(#ff00dd, #000, 20%) !important;
+  }
+
   /* for dark backgrounds */
 
   &--inverse {
