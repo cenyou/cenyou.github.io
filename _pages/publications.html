@@ -7,11 +7,15 @@ author_profile: true
 
 {% include base_path %}
 
-<table cellspacing="0" cellpadding="0">
+<table>
 {% for post in site.publications reversed %}
   <tr>
-    <td rowspan="4"><abbr class="btn btn--badge">{{post.badge}}</abbr></td>
-    <td><strong>{{ post.title }}</strong></td>
+    <td rowspan="5"><abbr class="btn btn--badge">{{post.badge}}</abbr></td>
+    <td>
+      <h3 itemprop="headline">
+        <strong>{{ post.title }}</strong>
+      </h3>
+    </td>
   </tr>
   <tr><td>
     {% for author in post.author %}
