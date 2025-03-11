@@ -9,10 +9,9 @@ author_profile: true
 
 {% for post in site.publications reversed %}
   <div class="{{ include.type | default: 'list' }}__item">
-    <abbr class="btn btn--badge">{{post.badge}}</abbr>
     <article>
       <h3 itemprop="headline">
-        <strong>{{ post.title }}</strong>
+        <strong>{{ post.title }}</strong><abbr class="btn btn--badge">{{post.badge}}</abbr>
       </h3>
       <p>
         {% for author in post.author %}
