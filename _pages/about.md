@@ -21,5 +21,11 @@ Research interests
 * Bayesian inference, uncertainty estimation
 * safe active learning, Bayesian optimization, adaptive experimental design
 
-
+Selected publications
+------
+{% for post in site.publications reversed %}
+  {% if post.selected %}
+    {% include single-publication.html %}
+  {% endif %}
+{% endfor %}
 
