@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: ""
+title: #"CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -13,7 +13,7 @@ Work / Education, retrospectively {% if site.author.linkedin %} \[ see my <a hre
 ------
 * 2020 - 2025: Ph.D. in Machine Learning \
 [TU Berlin](https://argmin.lis.tu-berlin.de/) / [Bosch Center for AI](https://www.bosch-ai.com/), Germany \
-Advisors: [Christoph Zimmer](https://www.linkedin.com/in/christoph-zimmer-9bb236115), [Barbara Rakitsch](https://scholar.google.de/citations?user=5o957iUAAAAJ&hl=en), [Marc Toussaint](https://www.user.tu-berlin.de/mtoussai/)
+Advisors: [Christoph Zimmer](https://www.linkedin.com/in/christoph-zimmer-9bb236115), [Barbara Rakitsch](https://scholar.google.de/citations?user=5o957iUAAAAJ), [Marc Toussaint](https://www.user.tu-berlin.de/mtoussai/)
 
 <!-- * 2023: Intern: Automotive Perception Active Learning \
 Bosch, Stuttgart, Germany -->
