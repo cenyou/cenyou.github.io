@@ -49,7 +49,14 @@
 
   &--badge {
     pointer-events: none;
-    padding: 0.1em 0.5em;
+    padding: 0.075em 0.5em 0.075em;
+    color: #fff !important;
+    font-size: $type-size-5;
+    background-color: mix(#ff00dd, #000, 70%) !important;
+  }
+  &--badge-upper {
+    pointer-events: none;
+    padding: 0.05em 0.5em 0.1em;
     color: #fff !important;
     font-size: $type-size-5;
     background-color: mix(#ff00dd, #000, 70%) !important;
