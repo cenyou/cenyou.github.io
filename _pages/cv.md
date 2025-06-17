@@ -9,12 +9,15 @@ redirect_from:
 
 {% include base_path %}
 
-Work / Education {% if site.author.linkedin %} \[ see my <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>LinkedIn</a> for details \] {% endif %}
+Work / Education {% if site.author.linkedin %} \[see my <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>LinkedIn</a> for details\] {% endif %}
 ------
+* 2025 - &emsp;&emsp;&nbsp; &emsp; Postdoctoral Researcher, [Finnish Center for AI](https://fcai.fi) & University of Helsinki, Finland \
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+  Advisors: [Luigi Acerbi](https://lacerbi.github.io/) ([MHI Group](https://www.helsinki.fi/en/researchgroups/machine-and-human-intelligence)), [Samuel Kaski](https://kaski-lab.com/) ([PML Group, Aalto University](https://research.cs.aalto.fi/pml/))
 * 2020 - 2025 &emsp; Ph.D. in Machine Learning, [TU Berlin](https://argmin.lis.tu-berlin.de/) & [Bosch Center for AI](https://www.bosch-ai.com/), Germany \
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   Advisors: [Christoph Zimmer](https://www.linkedin.com/in/christoph-zimmer-9bb236115), [Barbara Rakitsch](https://scholar.google.de/citations?user=5o957iUAAAAJ), [Marc Toussaint](https://www.user.tu-berlin.de/mtoussai/)
-* 2017 - 2019 &emsp; M.Sc. in Neural Information Processing, [Eberhard Karl University of Tübingen](https://www.neuroschool-tuebingen.de/), Germany \
+* 2017 - 2019 &emsp; M.Sc. in [Neural Information Processing](https://www.neuroschool-tuebingen.de/), Eberhard Karl University of Tübingen, Germany \
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
   Advisor: [Martin Giese](https://www.compsens.uni-tuebingen.de/compsens/index.php)
 * 2016 - 2017 &emsp; Research Assistant, Academia Sinica, Taipei, Taiwan
